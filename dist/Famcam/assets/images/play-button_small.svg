@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>play-button_small</title>
+    <desc>Created with Sketch.</desc>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-163.000000, -45.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="play-button_small" transform="translate(163.000000, 45.000000)">
+                <path d="M32,0 C14.354125,0 0,14.3555 0,32 C0,49.6445 14.354125,64 32,64 C49.645875,64 64,49.6445 64,32 C64,14.3555 49.645875,0 32,0 Z M44.721375,33.121125 L26.05475,45.121125 C25.836,45.263 25.583375,45.333375 25.333375,45.333375 C25.114625,45.333375 24.89325,45.278625 24.695375,45.170625 C24.265625,44.93625 24,44.48825 24,44 L24,20 C24,19.51175 24.265625,19.06375 24.695375,18.829375 C25.11725,18.597625 25.645875,18.611875 26.05475,18.878875 L44.721375,30.878875 C45.101625,31.123625 45.333375,31.546875 45.333375,32 C45.333375,32.453125 45.101625,32.87625 44.721375,33.121125 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

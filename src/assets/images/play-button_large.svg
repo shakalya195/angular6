@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>play-button_large</title>
+    <desc>Created with Sketch.</desc>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-22.000000, -37.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="play-button_large" transform="translate(22.000000, 37.000000)">
+                <path d="M40,0 C17.9426562,0 0,17.944375 0,40 C0,62.055625 17.9426562,80 40,80 C62.0573438,80 80,62.055625 80,40 C80,17.944375 62.0573437,0 40,0 Z M55.9017188,41.4014063 L32.5684375,56.4014063 C32.295,56.57875 31.9792188,56.6667188 31.6667188,56.6667188 C31.3932813,56.6667188 31.1165625,56.5982813 30.8692188,56.4632812 C30.3320312,56.1703125 30,55.6103125 30,55 L30,25 C30,24.3896875 30.3320312,23.8296875 30.8692187,23.5367188 C31.3965625,23.2470312 32.0573438,23.2648438 32.5684375,23.5985937 L55.9017187,38.5985937 C56.3770312,38.9045312 56.6667187,39.4335938 56.6667187,40 C56.6667187,40.5664063 56.3770312,41.0953125 55.9017188,41.4014063 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

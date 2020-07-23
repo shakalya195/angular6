@@ -1,0 +1,324 @@
+
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light container">
+        <a routerLink="/" class="navbar-brand" href="javascript://">
+          LOGO
+          <!-- <img src="assets/images/transparent-logo.png"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto display-flex align-items-center">
+            <li *ngIf="!loginData?._id" class="nav-item active">
+              <a class="nav-link" href="javascript://" data-toggle="modal" data-target="#myModal" >Login</a>
+            </li>
+            <li *ngIf="!loginData?._id" class="nav-item">
+              <a class="nav-link" href="javascript://" data-toggle="modal" data-target="#register" (click)="changeRole('user');">Create Account</a>
+            </li>
+            <!-- {{auth?.projects | json}} -->
+            <li *ngIf="loginData?._id" class="nav-item dropdown after-none">
+              <a class="nav-link dropdown-toggle" href="javascript://" id="projectDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{project?.name || '+project'}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="projectDropdown">
+                <a *ngFor="let item of auth?.projects" class="dropdown-item" (click)="selectProject(item)" href="javascript://">
+                  {{item?.name}} </a>
+              </div>
+            </li>
+            <!-- <li *ngIf="loginData?._id" class="nav-item active">
+              <a class="nav-link" href="javascript://">
+                <img class="invert-icon" src="assets/images/signup/ic_help.png">
+              </a>
+            </li> -->
+            <!-- <li *ngIf="loginData?._id" class="nav-item dropdown after-none notification">
+              <div class="dropdown">
+                <button type="button" class="select-language dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <img class="invert-icon" src="assets/images/signup/ic_notification_bell.png">
+                </button>
+                <div class="dropdown-menu">
+                  <div class="bdr-b-1 pl-3 pr-3 pt-2 pb-2"><h5 class="mb-3">Notification <a class="pull-right" href="javascript://">Clear all</a></h5>
+                  <strong>Request Cancelled</strong>
+                  <p>We’re sorry to inform you that your request for a video shoutout by Rachel Green has not been accepted.</p>
+                  <small>Tuesday, 10 Sep 08:05PM</small>
+                  </div>
+                  <div class="bdr-b-1 pl-3 pr-3 pt-2 pb-2">
+                  <strong>Request Cancelled</strong>
+                  <p>We’re sorry to inform you that your request for a video shoutout by Rachel Green has not been accepted.</p>
+                  <small>Tuesday, 10 Sep 08:05PM</small>
+                  </div>
+                  <div class="text-center">
+                  <a href="javascript://"><b>Show All</b></a>
+                </div>
+                </div>
+              </div>
+            </li> -->
+            <li *ngIf="loginData?._id" class="nav-item dropdown after-none">
+              <a class="nav-link dropdown-toggle" href="javascript://" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img [src]="loginData?.image" class="profilepic" onerror="this.src='assets/images/placeholder.png'">
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" routerLink="/internal/dashboard" href="javascript://">
+                  <!-- <img class="mr-2" src="assets/images/ic_customer.png"> -->
+                  Profile </a>
+                <!-- <hr class="dotted"> -->
+                <a class="dropdown-item" (click)="logout()" href="javascript://">
+                  <!-- <img class="mr-2" src="assets/images/ic_business.png"> -->
+                  Logout </a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                  <button type="button" class="select-language dropdown-toggle" data-toggle="dropdown">
+                    <img src="assets/images/lang/{{ts?.lang_code}}.svg" />
+                    {{ts?.selectedLanguage?.name}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <a *ngFor="let item of ts.languages" (click)="this.ts.setLanguage(item)" class="dropdown-item" href="javascript://">
+                      <img src="assets/images/lang/{{item?.code}}.svg" />
+                      {{item?.name}}
+                    </a>
+                  </div>
+                </div>
+            </li>
+          </ul>
+      </div>
+    </nav>
+  </header>
+
+
+   <!-- login and rester modal html start -->
+   <a [hidden]="true" #loginOpen class="nav-link" href="javascript://" data-toggle="modal" data-target="#myModal" >Login</a>
+   <div class="modal fade login" id="myModal">
+    <div class="modal-dialog" style="max-width:960px;">
+       <div class="modal-content">
+          <div class="customClose">
+             <button #loginClose type="button" class="close" style="opacity:1" data-dismiss="modal">
+             <img src="assets/images/popup_cross.svg" alt="img" />
+             </button>
+          </div>
+          <div class="modal-body">
+             <div class="row">
+                <div class="col-md-6">
+                   <div class="figBlock pt-5 text-center">
+                      <img class="img-fluid" src="assets/images/signup/signup.svg" alt="img" />
+                   </div>
+                </div>
+                <div class="col-md-6 ">
+                   <h2>Login</h2>
+                   <br/>
+                   <div class="tab-content">
+                      <div class="tab-pane active" id="talentTab">
+                        <br/>
+                        <app-social-login></app-social-login>
+
+                        <form [formGroup]="loginForm" autocomplete='off' (ngSubmit)="login(loginForm.value)">
+                          <label>
+                            <p class="label-txt">Username/Email Id</p>
+                            <input autocomplete="off" preventCutCopyPaste (focus)="onFocus();" type="text" formControlName="email" class="input"
+                             placeholder="" [ngClass]="{ 'is-invalid': parameter?.submitted && loginform?.email?.errors }">
+                            <div class="line-box">
+                              <div class="line"></div>
+                            </div>
+                            <div *ngIf="parameter?.submitted && loginform?.email?.errors " class="invalid-feedback">
+                              <div *ngIf="loginform?.email?.errors?.required">{{ts?.lang?.EmailRequireError}}</div>
+                              <div *ngIf="loginform?.email?.errors?.pattern">{{ts?.lang?.EmailPhoneValidError}}</div>
+                            </div>
+                          </label>
+                          <label>
+                            <p class="label-txt">Password</p>
+                            <input [type]="!show?'password':'text'" (focus)="onFocus();" preventCutCopyPaste class="input"
+                    formControlName="password" placeholder="" [ngClass]="{ 'is-invalid': parameter.submitted && loginform.password.errors && ! loginform.email.errors}">
+                              
+                            <div class="line-box">
+                              <div class="line"></div>
+                            </div>
+                            <span class="show-password" *ngIf="show" (click)="show=!show">
+                              <i class="fa fa-eye"></i>
+                            </span>
+                            <span class="show-password" *ngIf="!show" (click)="show=!show">
+                              <i class="fa fa-eye-slash"></i>
+                            </span>
+                              <div *ngIf="parameter.submitted" class="invalid-feedback">
+                                <div *ngIf="loginform?.password?.errors?.required">{{ts?.lang?.PleaseEnterPassword}}</div>
+                                <!-- <div *ngIf="loginform?.password?.errors?.minlength&&!loginform.password.errors.whiteSpace">{{ts?.lang?.PasswordLimitError}}</div>
+                                <div *ngIf="loginform?.password?.errors?.whiteSpace&&!loginform.password.errors.required">{{ts?.lang?.PasswordValidError}}</div> -->
+                              </div>
+
+                          </label>
+                          <div class="row mb-4">
+                          <div class="col-md-6 checkbox">
+                             <input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1">
+                            <label for="styled-checkbox-1">Remember me</label>
+                          </div>
+                          <div class="col-md-6">
+                            <a class="float-right" data-dismiss="modal" data-toggle="modal" data-target="#forgot-password" href="javascript://">Forget Password</a>
+                          </div>
+                        </div>
+                          <button class="w-100 login-btn mb-4 hover-ripple" type="submit">submit</button>
+                          <p data-dismiss="modal" data-toggle="modal" data-target="#register" class="text-center">Not a member yet? <a href="javascript://"> Register here</a></p>
+                        </form>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+    <!-- login and rester modal html start -->
+    <div class="modal fade login" id="register">
+      <div class="modal-dialog" style="max-width:960px;">
+         <div class="modal-content">
+            <div class="customClose">
+               <button #registerClose type="button" class="close" style="opacity:1" data-dismiss="modal">
+               <img src="assets/images/popup_cross.svg" alt="img" />
+               </button>
+            </div>
+            <div class="modal-body">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="figBlock pt-5 text-center">
+                        <img class="img-fluid" src="assets/images/signup/signup.svg" alt="img" />
+                     </div>
+                  </div>
+                  <div class="col-md-6 ">
+                    <h2>Create Account</h2>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="registerTab">
+                          <br/>
+                          <app-social-login></app-social-login>
+
+                           <form [formGroup]="registerForm" autocomplete='off' (ngSubmit)="register(registerForm.value)">
+                            <label>
+                              <p class="label-txt">Name</p>
+                              <input autocomplete="off" (focus)="onFocus();" type="text" formControlName="name" class="input" 
+                      placeholder="" [ngClass]="{ 'is-invalid': parameter2?.submitted && registerform?.name?.errors }">
+                              <div class="line-box">
+                                <div class="line"></div>
+                              </div>
+                              <div *ngIf="parameter2.submitted && registerform?.name?.errors " class="invalid-feedback">
+                                <div *ngIf="registerform?.name?.errors?.required">{{ts?.lang?.NameRequireError}}</div>
+                              </div>
+                            </label>
+
+                            <label>
+                              <p class="label-txt">Email Id</p>
+                              <input preventCutCopyPaste autocomplete="off" (focus)="onFocus();" type="email" formControlName="email" class="input" 
+                      placeholder="" [ngClass]="{ 'is-invalid': parameter2.submitted && registerform.email.errors }">
+                              <div class="line-box">
+                                <div class="line"></div>
+                              </div>
+                              <div *ngIf="parameter2.submitted && registerform?.email?.errors " class="invalid-feedback">
+                                  <div *ngIf="registerform?.email?.errors?.required">{{ts?.lang?.EmailRequireError}}</div>
+                                  <div *ngIf="registerform?.email?.errors?.pattern">{{ts?.lang?.EmailValidError}}</div>
+                                </div>
+                            </label>
+                            <!-- <label>
+                              <p class="label-txt">Username</p>
+                              <input autocomplete="off" (focus)="onFocus();" type="text" formControlName="userName" class="input" 
+                      placeholder="" [ngClass]="{ 'is-invalid': parameter2.submitted && registerform.userName.errors }">
+                              <div class="line-box">
+                                <div class="line"></div>
+                              </div>
+                              <div *ngIf="parameter2?.submitted && registerform?.userName?.errors " class="invalid-feedback">
+                                  <div *ngIf="registerform?.userName?.errors?.required">{{ts?.lang?.UsernameReqErr}}</div>
+                                </div>
+                            </label> -->
+                            <label>
+                              <p class="label-txt">Password</p>
+                              <input (focus)="onFocus();" preventCutCopyPaste [type]="show?'text':'password'" formControlName="password" class="input"
+                      placeholder="" [ngClass]="{ 'is-invalid': parameter2.submitted && registerform.password.errors}">
+                              <div class="line-box">
+                                <div class="line"></div>
+                              </div>
+                              <span class="show-password" *ngIf="show" (click)="show=!show">
+                                  <i class="fa fa-eye"></i>
+                                </span>
+                                <span class="show-password" *ngIf="!show" (click)="show=!show">
+                                  <i class="fa fa-eye-slash"></i>
+                                </span>
+                                
+                              <div *ngIf="parameter2?.submitted" class="invalid-feedback">
+                                <div *ngIf="registerform?.password?.errors?.required">{{ts?.lang?.PleaseEnterPassword}}</div>
+                                <div *ngIf="registerform?.password?.errors?.minlength">{{ts?.lang?.PasswordLimitError}}</div>
+                                <div *ngIf="registerform?.password?.errors?.whiteSpace">{{ts?.lang?.PasswordValidError}}</div>
+                              </div>
+
+                            </label>
+                            <!-- <p class="mb-4"><a href="javascript://">Invite Code? (Optional)</a></p> -->
+                            <button class="w-100 login-btn mb-5 hover-ripple" type="submit">Create Account</button>
+                          </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+ <!-- The Modal -->
+<div class="modal fade" id="forgot-password">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header no-border">
+        <button #forgotClose  type="button" class="close" style="opacity:1" data-dismiss="modal">
+        <img src="assets/images/popup_cross.svg" alt="img" />
+        </button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body forgot-password-form">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="assets/images/signup/forgot.svg">
+          </div>
+          <div class="col-md-6">
+            <div class="forgot-password-text">
+              <h3>{{ts?.lang?.ForgotPassword}}</h3>
+              <p>Enter the email address associated with  your account & we will send a password recovery link</p>
+              <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                 </div>
+                    <input [(ngModel)]="forgotEmail" (focus)="err={}" class="form-control" placeholder="Email address" type="email">
+                </div>
+                <div *ngIf="err.emailValidError" class="invalid-feedback">
+                  <div>Please enter a valid password</div>
+                </div>
+                <button (click)="forgotPassword()" class="w-100 login-btn mb-4 mt-3 hover-ripple" type="submit">Send Link</button>
+            </div>
+          </div>
+        </div>
+      </div>        
+    </div>
+  </div>
+</div>
+
+
+
+<!-- The Modal -->
+<div class="modal fade" id="email-sent">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header no-border">
+        <button type="button" class="close" style="opacity:1" data-dismiss="modal">
+        <img src="assets/images/popup_cross.svg" alt="img" />
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body p-5 text-center email-sent">
+        <img class="mx-auto dp-block" src="assets/images/signup/email-verification-dark-interface-symbol.png">
+        <h3>Verify Your Email ID!</h3>
+        <p>An Email with a link has been sent to your email id. Click on the link to verify your email!</p>
+      </div>        
+    </div>
+  </div>
+</div>

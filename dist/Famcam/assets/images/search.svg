@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>search</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.300000012">
+        <g id="z" transform="translate(-583.000000, -164.000000)" stroke="#000000">
+            <g id="icons/ic_search_w" transform="translate(580.000000, 162.000000)">
+                <g id="Group-2" transform="translate(-1.250000, -1.142857)">
+                    <g id="Group" transform="translate(15.000000, 13.714286) rotate(-45.000000) translate(-15.000000, -13.714286) translate(9.000000, 3.714286)" stroke-width="2">
+                        <path d="M6,12.3239315 L6,19.4692096" id="Line-3" stroke-linecap="round"></path>
+                        <ellipse id="Oval" cx="6" cy="5.88235294" rx="6" ry="5.88235294"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

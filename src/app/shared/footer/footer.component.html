@@ -1,0 +1,31 @@
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+      <div class="bottom-footer">
+          <div class="row">
+              <div class="col-md-12">
+                <div class="language">
+                  <h6>{{ts?.lang?.Language}}:
+                    <a *ngFor="let item of ts?.languages" (click)="ts.setLanguage(item)" href="javascript://">{{item?.name}} </a>
+                  </h6>
+                </div> 
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+LOGIN DATA
+<pre>
+  {{loginData |json}}
+</pre>
+PROJECT
+<pre>
+  {{project |json}}
+</pre>
+
+<!-- <div class="language">
+  <h6>{{ts?.lang?.Language}}:
+    <a *ngFor="let item of ts?.languages" (click)="ts.setLanguage(item)" href="javascript://">{{item?.name}} </a>
+  </h6>
+</div> -->

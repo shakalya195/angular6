@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/css/style.css";
+@import "assets/css/responsive.css";
+.pointer{
+    cursor:pointer;    
+}
+header{
+    background: #007bff; 
+    box-shadow: 0px 0px 15px #ccc;
+}
+.profilepic{
+    height:30px;
+    border-radius: 25%;
+}
+.page-content{
+    padding:15px;
+    background: #fff;
+}

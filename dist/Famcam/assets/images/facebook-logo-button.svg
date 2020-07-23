@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>facebook-logo-button</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M14.8956,0 C6.6822,0 0,6.6822 0,14.8956 C0,23.1084 6.6822,29.7912 14.8956,29.7912 C23.1084,29.7912 29.7912,23.1084 29.7912,14.8956 C29.7912,6.6822 23.1096,0 14.8956,0 Z" id="path-1"></path>
+        <filter x="-33.6%" y="-26.9%" width="167.1%" height="167.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.831372549   0 0 0 0 0.325490196   0 0 0 0 0.435294118  0 0 0 0.358412591 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-119.000000, -244.000000)" fill-rule="nonzero">
+            <g id="facebook-logo-button" transform="translate(125.000000, 248.000000)">
+                <g id="Shape">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#9D0A5B" xlink:href="#path-1"></use>
+                </g>
+                <path d="M18.6,15.42 L16.1766,15.42 C16.1766,19.2918 16.1766,24.0576 16.1766,24.0576 L12.5856,24.0576 C12.5856,24.0576 12.5856,19.338 12.5856,15.42 L10.8786,15.42 L10.8786,12.3672 L12.5856,12.3672 L12.5856,10.3926 C12.5856,8.9784 13.2576,6.7686 16.2096,6.7686 L18.8706,6.7788 L18.8706,9.7422 C18.8706,9.7422 17.2536,9.7422 16.9392,9.7422 C16.6248,9.7422 16.1778,9.8994 16.1778,10.5738 L16.1778,12.3678 L18.9138,12.3678 L18.6,15.42 Z" id="Path" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

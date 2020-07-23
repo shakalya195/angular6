@@ -1,0 +1,8 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-loader></app-loader>
+<app-header></app-header>
+<div *ngIf="loading" class="progress fixed-top">
+    <div class="progress-bar bg-danger progress-bar-striped" style="width:100%"></div>
+</div>
+<router-outlet (scroll)="onWindowScroll($event)"></router-outlet>
+<app-footer></app-footer>

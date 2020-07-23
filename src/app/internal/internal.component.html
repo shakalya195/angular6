@@ -1,0 +1,57 @@
+<section class="my-profile">
+  <div class="container">
+
+        <div class="row">
+          <div class="col-md-3">
+            <div *ngIf="loginData?._id" class="bg-white p-4 rounded text-center profile-pic-upload">
+              <div class="avatar-upload">
+                <div routerLink="/internal/dashboard" class="avatar-preview pointer">
+                  <img class="img-fluid" [src]="loginData?.image" onerror="this.src='assets/images/placeholder.png'">
+                </div>
+              </div>
+              <h4 class="mt-3">{{loginData?.name}}</h4>
+            </div>
+            <!-- {{imageUrl}} -->
+            <div class="bg-white pl-3 pt-3 pb-2 mt-3 rounded prolile-list">
+              <ul class="list-inline">
+                <li [routerLinkActive]="'active'" routerLink="/internal/dashboard">
+                  <a href="javascript://"><i class="pr-3">
+                    <img src="assets/images/signup/ic_profile_active.svg"></i>
+                  Dashboard</a>
+                </li>
+                <li [routerLinkActive]="'active'" routerLink="/internal/projects">
+                  <a href="javascript://"><i class="pr-3">
+                    <img src="assets/images/signup/ic_profile_active.svg"></i>
+                  Projects</a>
+                </li>
+                <li [routerLinkActive]="'active'" routerLink="/internal/tasks">
+                  <a href="javascript://"><i class="pr-3">
+                    <img src="assets/images/signup/ic_profile_active.svg"></i>
+                  Tasks</a>
+                </li>
+                <li [routerLinkActive]="'active'" routerLink="/internal/issues">
+                  <a href="javascript://"><i class="pr-3">
+                    <img src="assets/images/signup/ic_profile_active.svg"></i>
+                  Issues</a>
+                </li>
+                <!-- <li [routerLinkActive]="'active'" routerLink="/internal/my-profile">
+                  <a href="javascript://"><i class="pr-3">
+                    <img src="assets/images/signup/ic_profile_active.svg"></i>
+                  My Profile</a>
+                </li> -->
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-9">
+              <div class="page-content">
+                <router-outlet></router-outlet>
+              </div>
+              
+              <!-- <pre>
+                  {{loginData|json}}
+              </pre> -->
+          </div>
+        </div>
+
+  </div>
+</section>
