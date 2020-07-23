@@ -21,7 +21,6 @@ import {
 } from "angular-6-social-login";
 import { getAuthServiceConfigs } from '../environments/environment';
 import { MessagingService } from './services/messaging.service';
-import { CustomDirective } from './directives/custom.directive';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -44,7 +43,6 @@ import { InternalComponent } from './internal/internal.component';
 import { SocialLoginComponent } from './shared/social-login/social-login.component';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { TestingComponent } from './testing/testing.component';
-
 
 
 @NgModule({

@@ -8,8 +8,6 @@ export const environment = {
   production: false,
   socket_url:'http://localhost:8001/',
   baseUrl:'http://localhost:8001/',  /*local Link*/
-  // baseUrl:'https://api.famcam.co/',
-
 };
 
 // Configs 

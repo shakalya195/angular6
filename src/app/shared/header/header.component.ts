@@ -8,7 +8,6 @@ import { SocialLoginService } from '../../services/social-login.service';
 import { TranslateService } from 'src/app/lang/translate.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Constants } from 'src/app/common/constants';
-import { whiteSpaceValidator } from 'src/app/directives/custom.directive';
 import { apiUrl } from '../../common/urls';
 
 @Component({
@@ -124,7 +123,7 @@ export class HeaderComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required ],
       email: ['', [Validators.required, Validators.pattern(this.constants.regex)]],
-      password: ['', [Validators.required, whiteSpaceValidator(), Validators.minLength(6), Validators.maxLength(16)]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]],
     });
   }
 
@@ -176,7 +175,7 @@ export class HeaderComponent implements OnInit {
   btnLoader:any=false;
   initLogin() {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, whiteSpaceValidator()]],
+      email: ['', [Validators.required]],
       password: ['', Validators.required],
     })
   }

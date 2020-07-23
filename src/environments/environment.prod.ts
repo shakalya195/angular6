@@ -1,6 +1,7 @@
 import { AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, LinkedinLoginProvider } from "angular-6-social-login";
 export const environment = {
   production: true,
+  socket_url:'http://localhost:8001/',
   baseUrl:'http://localhost:8001/',  /*local Link*/
   instagram:{
     clientId:'ba6118ee53ed45baa95427da3ce603ac',
